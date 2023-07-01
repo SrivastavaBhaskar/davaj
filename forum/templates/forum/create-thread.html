@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ threadForm.as_p }}
+    {{ postForm.as_p }}
+    <input type="submit" value="Create Thread">
+</form>
+
+{% endblock content %}

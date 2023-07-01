@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>Threads</h1>
+{% for thread in threads %}
+<p><a href="{% url 'view-thread' thread.id %}">{{ thread.title }}</a> - Created By: {{ thread.creator }} <br>Last Updated: {{ thread.updated }}</p>
+{% endfor %}
+<a href="{% url 'create-thread' %}">Create New Thread</a>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>{{ thread.title }}</h1> <br>
+<p>Created By: {{ thread.creator }} <br>Last Updated: {{ thread.updated }}</p>
+{% for post in posts %}
+<p>{{ post }} - Posted By: {{ post.creator }} <br>Last  Updated: {{ post.updated }}</p>
+{% endfor %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Comment">
+</form>
+
+{% endblock content %}
