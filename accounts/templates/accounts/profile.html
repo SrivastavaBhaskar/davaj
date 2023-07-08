@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+
+{% if user == this_user %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-danger text-black" type="submit" value="Update Profile">
+        <a class="btn btn-danger text-black" href="">Go To Public Profile</a>
+    </form>
+{% endif %}
+
+{% endblock content %}

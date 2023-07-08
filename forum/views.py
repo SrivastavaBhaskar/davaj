@@ -1,6 +1,5 @@
-from audioop import reverse
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 
 from forum.forms import CreateThread, CreatePost
 from forum.models import Thread
@@ -16,6 +15,7 @@ def forum_home(request):
     }
     return render(request, 'forum/home.html', context=context)
 
+@login_required
 def create_thread(request):
     threadForm = CreateThread(data=request.POST or None)
     postForm = CreatePost(data=request.POST or None)
