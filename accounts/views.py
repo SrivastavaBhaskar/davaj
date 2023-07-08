@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from accounts.forms import EditProfileForm
@@ -38,6 +39,7 @@ def registration_view(request):
         return redirect(login_view)
     return render(request, 'accounts/register.html', context=context)
 
+@login_required
 def user_profile_edit_view(request, username=None):
     if username == None:
         return redirect(forum_home)

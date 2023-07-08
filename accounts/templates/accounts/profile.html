@@ -8,8 +8,10 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input class="btn btn-danger text-black" type="submit" value="Update Profile">
-        <a class="btn btn-danger text-black" href="">Go To Public Profile</a>
+        <a class="btn btn-danger text-black" href="{% url 'user-profile' user.username %}">Go To Public Profile</a>
     </form>
+{% else %}
+    <h1>You are unauthorized to edit this profile. <a class="btn btn-danger text-black" href="{% url 'forum-home' %}">Go to Forum Home</a></h1>
 {% endif %}
 
 {% endblock content %}
